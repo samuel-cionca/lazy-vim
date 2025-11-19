@@ -9,3 +9,4 @@ data
 *git-credentials
 **/.cache/**
 ~/.cache/nvim/tmp
+lazy-lock.json
