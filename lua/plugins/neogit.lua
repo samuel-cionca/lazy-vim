@@ -7,8 +7,7 @@ return {
     -- Only one of these is needed.
     "nvim-telescope/telescope.nvim", -- optional
     "ibhagwan/fzf-lua", -- optional
-    -- "echasnovski/mini.pick", -- optional --NOTE: was renamed
-    "nvim-mini/mini.pick",
+    "nvim-mini/mini.pick", -- optional
   },
   config = true,
 }

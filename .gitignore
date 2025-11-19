@@ -7,3 +7,5 @@ foo.*
 *.log
 data 
 *git-credentials
+**/.cache/**
+~/.cache/nvim/tmp

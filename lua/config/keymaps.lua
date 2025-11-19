@@ -199,10 +199,25 @@ vim.keymap.set("n", "<leader>fs", function()
 end, { noremap = true, silent = true, desc = "Source Current File" })
 
 -- rest.nvim 
--- vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<CR>", { silent = true }
+vim.keymap.set("n", "<leader>ro", function()
+  local path = vim.fn.expand("~/.cache/nvim/kulala/body.txt")
+  if vim.fn.filereadable(path) == 1 then
+    vim.cmd("edit " .. path)
+    vim.bo.filetype = "json" -- auto-set JSON so syntax highlighting works
+    pcall(function()
+      vim.cmd("%!jq .")
+    end) -- pretty-print (only if jq installed)
+  else
+    print("No Kulala response file found")
+  end
+end, { noremap = true, silent = false, desc = "Open last Kulala response" })
 vim.keymap.set("n", "<leader>rr", function()
   require("kulala").run()
-end, { noremap = true, silent = false, desc = "Run Request" })
+  vim.defer_fn(function()
+    vim.cmd("normal! <leader>ro")
+  end, 300) -- wait a bit for the request to finish
+end, { noremap = true, silent = false, desc = "Run request & open response" })
 
 vim.keymap.set("n", "P", function()
   vim.cmd("put")

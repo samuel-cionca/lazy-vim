@@ -21,18 +21,18 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "/home/osic/Dropbox/ObsidianVault/",
+        path = "/mnt/c/Users/SamuelCionca/Dropbox/ObsidianVault/",
         overrides = {
-          notes_subdir = "NOTES",
+          notes_subdir = "notes",
         },
       },
-      --   {
-      --     name = "work",
-      --     path = "/mnt/c/Users/SamuelCionca/Dropbox/Obsidian Vault/itsme/work/",
-      --     overrides = {
-      --       notes_subdir = "notes",
-      --     },
-      --   },
+      {
+        name = "work",
+        path = "/mnt/c/Users/SamuelCionca/Dropbox/ObsidianVault/work/",
+        overrides = {
+          notes_subdir = "../notes",
+        },
+      },
     },
 
     -- see below for full list of options 👇
