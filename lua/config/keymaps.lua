@@ -214,9 +214,6 @@ vim.keymap.set("n", "<leader>ro", function()
 end, { noremap = true, silent = false, desc = "Open last Kulala response" })
 vim.keymap.set("n", "<leader>rr", function()
   require("kulala").run()
-  vim.defer_fn(function()
-    vim.cmd("normal! <leader>ro")
-  end, 300) -- wait a bit for the request to finish
 end, { noremap = true, silent = false, desc = "Run request & open response" })
 
 vim.keymap.set("n", "P", function()
